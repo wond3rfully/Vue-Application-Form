@@ -79,7 +79,6 @@ export default {
 
 <style lang="scss" scoped>
 .cardContainer {
-  position: absolute;
   width: 225px;
   height: 200px;
   display: flex;

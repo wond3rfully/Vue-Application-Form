@@ -11,19 +11,12 @@ export default {
         date: {
             type: String,
         },
-
-         handleDelete: {
-            type: Function,
-        } 
-/* 
-        array */
     },
-/* 
     methods: {
-        handleDelete(array){
-
+        handleDelete() {
+            this.$emit("delete")
         }
-    } */
+    }
 }
 </script>
 
@@ -33,7 +26,7 @@ export default {
         <span class="date">{{ date }}</span>
         <span class="title">{{ title }}</span>
         </div>
-        <button class="deleteSkill" @click="handleDelete"></button>
+        <a class="deleteSkill" @click="handleDelete"></a>
     </div>
 </template>
 

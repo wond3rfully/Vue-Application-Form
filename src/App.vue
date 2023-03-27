@@ -10,7 +10,7 @@ export default {
     UserCard,
     AddButton,
     GreyBox,
-    UserDrawer
+    UserDrawer,
   },
 
   data() {
@@ -33,30 +33,42 @@ export default {
         expData: [],
       },
       infoList: [],
-      drawerInfo: null
+      drawerInfo: null,
     };
   },
 
   methods: {
-    showData() {/* 
+    showData() {
+      /* 
       console.log(this.userInfo);  
       this.infoList = [...this.infoList, JSON.parse(JSON.stringify(this.userInfo))]
-      this.userInfo = {} */  
+      this.userInfo = {} */
       /* 
       this.infoList = [...this.infoList, this.userInfo]
       this.userInfo = [] */
 
       this.infoList.push(this.userInfo);
-      console.log(this.infoList); 
+      console.log(this.infoList);
     },
 
-     deleteSkill(){
-      console.log("delete this")
-     // this.skillsData = this.skillsData.filter((_, index) => index !== indexBox);
-    }, 
+    deleteSkill() {
+      console.log("delete this");
+      // this.skillsData = this.skillsData.filter((_, index) => index !== indexBox);
+    },
+
+    handleDeleteSkill(indexDeleted) {
+      this.userInfo.skillsData = this.userInfo.skillsData.filter((_, index) => index !== indexDeleted);
+    },
+
+    handleDeleteExp(indexDeleted){
+      this.userInfo.expData = this.userInfo.expData.filter((_, index) => index !== indexDeleted);
+
+    },
 
     showDrawer() {
-      this.infoList = this.infoList.filter((_, index) => this.drawerInfo = this.infoList[index]);
+      this.infoList = this.infoList.filter(
+        (_, index) => (this.drawerInfo = this.infoList[index])
+      );
     },
 
     pushSkills() {
@@ -102,8 +114,9 @@ export default {
       v-for="(skill, index) in userInfo.skillsData"
       :key="`dt-${index}}`"
       :title="userInfo.skillsData[index]"
-      :handleDelete="deleteSkill()"       
+      :handleDelete="deleteSkill()"
       :data="skill"
+      @delete="handleDeleteSkill(index)"
     />
     <input
       type="text"
@@ -134,6 +147,7 @@ export default {
       :title="userInfo.expData[index].experienceTitle"
       :date="userInfo.expData[index].experienceDate"
       :data="exp"
+      @delete="handleDeleteExp(index)"
     />
     <button class="addUserButton" @click="showData()">Add User Info</button>
   </div>
@@ -154,8 +168,8 @@ export default {
   </div>
 
   <div class="drawerSection">
-
-    <UserDrawer v-if="drawerInfo !== null"
+    <UserDrawer
+      v-if="drawerInfo !== null"
       :firstName="drawerInfo.firstName"
       :lastName="drawerInfo.lastName"
       :email="drawerInfo.email"
@@ -163,21 +177,17 @@ export default {
       :role="drawerInfo.role"
       :skills="drawerInfo.skillsData"
       :experiences="drawerInfo.expData"
-  />
-  
-
+    />
   </div>
-  
-
 </template>
 
 <style lang="scss">
 input {
   border: 1px solid #9a9a9a;
-  width: 286px;
-  height: 45px;
+  width: 274px;
+  height: 42px;
   padding-left: 10px;
-  padding-top: 0;
+  padding-top: -5px;
   padding-bottom: 0;
   padding-right: 0;
 
@@ -212,7 +222,7 @@ input {
     display: flex;
 
     .skills {
-      width: 240px;
+      width: 227px;
     }
   }
 
@@ -243,16 +253,21 @@ input {
 }
 
 .cardSection {
-  grid-column: 4/9;
-  grid-row: 1/6;
+  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .drawerSection {
-grid-column: 9/12;
-grid-row: 1/6;
+  grid-column: 9/12;
+  grid-row: 1/6;
 }
 
+.drawerSection {
+  width: 492px;
+  height: 100%;
+  position: fixed;
+  right: 30px;
+  }
 </style>
