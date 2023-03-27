@@ -39,9 +39,11 @@ export default {
 
   methods: {
     showData() {
-      
-      console.log(this.userInfo);  
-      this.infoList = [...this.infoList, JSON.parse(JSON.stringify(this.userInfo))]
+      console.log(this.userInfo);
+      this.infoList = [
+        ...this.infoList,
+        JSON.parse(JSON.stringify(this.userInfo)),
+      ];
       this.userInfo = {
         firstName: "",
         lastName: "",
@@ -58,7 +60,7 @@ export default {
           experienceDate: "",
         },
         expData: [],
-      }
+      };
       /* 
       this.infoList = [...this.infoList, this.userInfo]
       this.userInfo = [] */
@@ -90,12 +92,15 @@ export default {
     },
 
     handleDeleteSkill(indexDeleted) {
-      this.userInfo.skillsData = this.userInfo.skillsData.filter((_, index) => index !== indexDeleted);
+      this.userInfo.skillsData = this.userInfo.skillsData.filter(
+        (_, index) => index !== indexDeleted
+      );
     },
 
-    handleDeleteExp(indexDeleted){
-      this.userInfo.expData = this.userInfo.expData.filter((_, index) => index !== indexDeleted);
-
+    handleDeleteExp(indexDeleted) {
+      this.userInfo.expData = this.userInfo.expData.filter(
+        (_, index) => index !== indexDeleted
+      );
     },
 
     showDrawer() {
@@ -149,6 +154,7 @@ export default {
       :title="userInfo.skillsData[index]"
       :handleDelete="deleteSkill()"
       :data="skill"
+      class="greyBoxSkill"
       @delete="handleDeleteSkill(index)"
     />
     <input
@@ -171,7 +177,7 @@ export default {
         placeholder="Experience date"
         v-model="userInfo.experiences.experienceDate"
       />
-      <AddButton @click="pushExperiences()" />
+      <AddButton @click="pushExperiences()" class="btnPushExp" />
     </div>
 
     <GreyBox
@@ -181,6 +187,7 @@ export default {
       :date="userInfo.expData[index].experienceDate"
       :data="exp"
       @delete="handleDeleteExp(index)"
+      class="greyBoxExp"
     />
     <button class="addUserButton" @click="showData()">Add User Info</button>
   </div>
@@ -230,20 +237,19 @@ input {
 }
 
 #app {
-  padding-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  display: flex;
+  gap: 16px;
 }
 
 .applicationForm {
-  //grid-column: 1/6;
-  grid-row: 1/6;
-  margin-left: 40px;
+  height: 1428px;
+  width: 348px;
+  margin-left: 29px;
   display: flex;
   text-align: start;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
+  margin-top: 40px;
 
   .userInfoTitle {
     font-weight: 600;
@@ -259,15 +265,18 @@ input {
     }
   }
 
+  .btnPushExp {
+    margin-left: 241px;
+  }
+
   .experienceDescription {
-    height: 105px;
+    height: 102px;
   }
 
   .experienceDateContainer {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    align-items: flex-end;
   }
 }
 
@@ -276,7 +285,8 @@ input {
   justify-content: center;
   align-items: center;
   background-color: #2444b5;
-  height: 47px;
+  border: 0px;
+  height: 45px;
   width: 183px;
   border-radius: 0;
   align-self: center;
@@ -286,7 +296,7 @@ input {
 }
 
 .cardSection {
-  margin-left: 50px;
+  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -302,5 +312,45 @@ input {
   height: 100%;
   position: fixed;
   right: 30px;
+}
+
+.greyBoxExp {
+  display: flex;
+  margin-left: 0;
+  height: 73px;
+  width: 268px !important;
+  padding-left: 18px;
+  align-items: none !important;
+  padding-top: 28px;
+  background-color: #dde3eb;
+  gap: 16px;
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    gap: 7px;
+    width: 220px;
+  margin-left: 0;
+
   }
+}
+
+.greyBoxSkill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-left: 17px;
+
+  .textContainer {
+    padding-left: 9px;
+    height: 25px;
+    width: 234px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #dde3eb;
+  }
+}
 </style>

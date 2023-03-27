@@ -116,6 +116,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.userIdentity{
+  display: flex;
+  gap: 16px;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+}
 .experienceSection {
   display: flex;
   flex-direction: column;

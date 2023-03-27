@@ -20,9 +20,10 @@ export default{
     justify-content: center;
     align-items: center;
     background-color: #2444B5;
-    height: 47px;
-    width: 47px;
+    height: 45px;
+    width: 45px;
     border-radius: 0;
+    border: 0px;
 }
 
 </style>
