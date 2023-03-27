@@ -53,7 +53,6 @@ export default {
 </script>
 
 <template>
-  <div class="userDrawer"></div>
   <div class="cardContainer">
     <div class="userIdentity">
       <div class="avatar"></div>
@@ -116,17 +115,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-.userIdentity{
-  display: flex;
-  gap: 16px;
-}
-.avatar {
-  width: 45px;
-  height: 45px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 100%;
-}
 .experienceSection {
   display: flex;
   flex-direction: column;
@@ -168,15 +156,6 @@ export default {
   .description {
     margin-top: 20px;
   }
-}
-
-.cardContainer {
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.26);
-  padding: 20px;
 }
 
 .identityText {

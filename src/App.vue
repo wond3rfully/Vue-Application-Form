@@ -39,6 +39,7 @@ export default {
 
   methods: {
     showData() {
+      
       console.log(this.userInfo);
       this.infoList = [
         ...this.infoList,
@@ -207,7 +208,7 @@ export default {
     />
   </div>
 
-  <div class="drawerSection">
+  <div>
     <UserDrawer
       v-if="drawerInfo !== null"
       :firstName="drawerInfo.firstName"
@@ -217,6 +218,7 @@ export default {
       :role="drawerInfo.role"
       :skills="drawerInfo.skillsData"
       :experiences="drawerInfo.expData"
+      class="drawerSection"
     />
   </div>
 </template>
@@ -296,22 +298,22 @@ input {
 }
 
 .cardSection {
+  width: 470px;
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 }
 
-.drawerSection {
-  grid-column: 9/12;
-  grid-row: 1/6;
-}
 
 .drawerSection {
+  padding-top: 44px;
   width: 492px;
   height: 100%;
   position: fixed;
-  right: 30px;
+  padding-left: 40px;
+  right: 0px;
+  box-shadow: -2px 0px 20px 20px rgba(0, 0, 0, 0.16);
 }
 
 .greyBoxExp {

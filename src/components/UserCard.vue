@@ -77,7 +77,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cardContainer {
   width: 225px;
   height: 200px;
