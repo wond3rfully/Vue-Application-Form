@@ -62,15 +62,16 @@ export default {
         <div class="icon">
           <img src="../../public/exp.png" alt="" />
         </div>
-
-        <!-- rah mapiasa v-for ka te hi-modifier index 1 en particulier d aona -->
-
-        <span
+        <span class="skillsSpan"><span
           v-for="(skill, index) in skills"
           :key="`dt-${index}}`"
           data="skill"
           >{{ skill + " -" }}</span
-        >
+        ></span>
+
+        <!-- rah mapiasa v-for ka te hi-modifier index 1 en particulier d aona -->
+
+        
       </div>
     </div>
   </div>
@@ -78,6 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 .cardContainer {
+  position: absolute;
   width: 225px;
   height: 200px;
   display: flex;
@@ -122,10 +124,12 @@ export default {
   gap: 9px;
 }
 
-.userInfo{
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 80%;
+
 }
 
 .aboutUser {
@@ -137,5 +141,12 @@ export default {
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.skillsSpan{
+    top: 8px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>
