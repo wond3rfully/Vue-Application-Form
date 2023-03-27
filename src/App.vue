@@ -39,16 +39,49 @@ export default {
 
   methods: {
     showData() {
-      /* 
+      
       console.log(this.userInfo);  
       this.infoList = [...this.infoList, JSON.parse(JSON.stringify(this.userInfo))]
-      this.userInfo = {} */
+      this.userInfo = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        age: "",
+        role: "",
+
+        skills: "",
+        skillsData: [],
+
+        experiences: {
+          experienceTitle: "",
+          experienceDescription: "",
+          experienceDate: "",
+        },
+        expData: [],
+      }
       /* 
       this.infoList = [...this.infoList, this.userInfo]
       this.userInfo = [] */
 
-      this.infoList.push(this.userInfo);
+      /* this.infoList.push(this.userInfo);
       console.log(this.infoList);
+
+      this.userInfo.firstName = "",
+      this.userInfo.lastName= "",
+      this.userInfo.email= "",
+      this.userInfo.age= "",
+      this.userInfo.role= "",
+
+      this.userInfo.skills= "",
+      this.userInfo.skillsData= [],
+
+      this.userInfo.experiences= {
+          experienceTitle: "",
+          experienceDescription: "",
+          experienceDate: "",
+        },
+      this.userInfo.expData= []
+ */
     },
 
     deleteSkill() {
