@@ -127,6 +127,10 @@ export default {
       this.userInfo.experiences = {};
       console.log(this.userInfo.expData);
     },
+
+    closeDrawer() {
+      this.drawerInfo = null
+    }
   },
 };
 </script>
@@ -218,6 +222,7 @@ export default {
       :role="drawerInfo.role"
       :skills="drawerInfo.skillsData"
       :experiences="drawerInfo.expData"
+      @close="closeDrawer()"
       class="drawerSection"
     />
   </div>
@@ -298,6 +303,7 @@ input {
 }
 
 .cardSection {
+  height: fit-content;
   width: 470px;
   margin-top: 25px;
   display: flex;

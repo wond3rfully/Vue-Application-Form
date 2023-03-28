@@ -49,11 +49,21 @@ export default {
             type: String,
         }, */
   },
+
+  methods:{
+    handleClose(){
+      this.$emit("close")
+    }
+  }
 };
 </script>
 
 <template>
   <div class="cardContainer">
+  <div class="close" @click="handleClose">
+    <img src="../../public/close.png" alt="">
+  </div>
+
     <div class="userIdentity">
       <div class="avatar"></div>
       <div class="identityText">
@@ -167,5 +177,11 @@ export default {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.close{
+  position: absolute;
+  top: 21px;
+  right: 19px;
 }
 </style>
